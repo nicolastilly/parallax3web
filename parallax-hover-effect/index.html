@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parallax hover</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: #1a1a1a;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                font-family: Arial, sans-serif;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .atropos {
+                width: 400px;
+                height: 300px;
+            }
+
+            .atropos-inner {
+                border-radius: 20px;
+                background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            }
+
+            .card-content {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .floating-element {
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+            }
+
+            .element-1 {
+                top: 20%;
+                left: 20%;
+            }
+
+            .element-2 {
+                bottom: 20%;
+                right: 20%;
+                width: 60px;
+                height: 60px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="atropos my-atropos">
+                <div class="atropos-scale">
+                    <div class="atropos-rotate">
+                        <div class="atropos-inner">
+                            <div class="card-content">
+                                <div class="floating-element element-1" data-atropos-offset="5"></div>
+                                <div class="floating-element element-2" data-atropos-offset="3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.js"></script>
+
+        <script>
+            if (typeof Atropos !== 'undefined') {
+                const myAtropos = Atropos({
+                    el: '.my-atropos',
+                    activeOffset: 40,
+                    shadowScale: 1.05,
+                    highlight: true,
+                    rotateXMax: 15,
+                    rotateYMax: 15,
+                    stretchX: 40,
+                    stretchY: 40,
+                });
+            } else {
+                console.error('Atropos library not loaded correctly');
+            }
+        </script>
+    </body>
+
+</html>

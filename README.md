@@ -6,3 +6,6 @@ Le cours creative coding porte sur l'utilisation de librairies javascript permet
 
 ## Démo avec un écran fixe (position de la souris)
 [code source ici](parallax-ecran-fixe/index.html)
+
+## Démo lors d'un hover sur un élément
+[code source ici](parallax-hover-effect/index.html)
