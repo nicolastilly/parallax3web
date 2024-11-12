@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parallax avec défilement de la page</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+
+            .section {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .image-container {
+                width: 100%;
+                height: 800px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .parallax-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                margin: 2rem 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="section">
+            <div class="container">
+                <h1>Bienvenue sur l'exemple Parallax N°1</h1>
+                <p>Scrollez vers le bas pour voir l'effet de parallax sur l'image.</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="image.jpg" alt="Image Parallax" class="parallax-img">
+        </div>
+
+        <div class="section">
+            <div class="container">
+                <h1>Section suivante</h1>
+                <p>L'image ci-dessus utilise un effet parallax lors du défilement.</p>
+            </div>
+        </div>
+
+        <!-- Inclure la librairie SimpleParallax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-parallax-js/5.6.2/simpleParallax.min.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Initialisation du parallax
+                const image = document.getElementsByClassName('parallax-img');
+                new simpleParallax(image, {
+                    scale: 1.8,           // Niveau de zoom
+                    delay: .6,            // Délai de l'animation
+                    transition: 'cubic-bezier(0,0,0,1)',  // Type de transition
+                    overflow: true        // Permet le débordement de l'image
+                });
+            });
+        </script>
+    </body>
+
+</html>
